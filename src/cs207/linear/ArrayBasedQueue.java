@@ -28,6 +28,8 @@ public class ArrayBasedQueue<T> implements Queue<T> {
    * The number of elements in the queue.
    */
   int size;
+  
+  int back;
 
   // +--------------+----------------------------------------------------
   // | Constructors |
@@ -47,6 +49,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
     this.values = (T[]) new Object[capacity];
     this.front = 0;
     this.size = 0;
+    this.back = 0;
   } // ArayBasedQueue(int capacity)
 
   // +---------------+---------------------------------------------------
@@ -60,7 +63,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
 
   @Override
   public boolean isFull() {
-    return this.back() >= this.values.length;
+    return this.size >= this.values.length;
   } // isFull()
 
   @Override
@@ -68,8 +71,10 @@ public class ArrayBasedQueue<T> implements Queue<T> {
     if (this.isFull()) {
       throw new Exception("no more room!");
     } // this.isFull()
+    this.back = this.back % this.values.length;
     this.values[this.back()] = val;
-    ++this.size;
+    ++this.back;
+    this.size++;
   } // put(T)
 
   @Override
@@ -78,6 +83,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
       throw new Exception("empty");
     } // if empty
     // Grab and clear the element at the front of the queue
+    this.front = this.front % this.values.length;
     T result = this.values[this.front];
     this.values[this.front++] = null;
     // We're removing an element, so decrement the size
@@ -117,7 +123,7 @@ public class ArrayBasedQueue<T> implements Queue<T> {
    * Get the index of the back of the queue. The back is where we add the next element.
    */
   int back() {
-    return this.size;
+    return this.back;
   } // back()
 
 } // class ArrayBasedQueue<T>

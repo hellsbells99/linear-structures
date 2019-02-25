@@ -130,8 +130,9 @@ public class ReportingLinearStructure<T> implements LinearStructure<T> {
   public void info() {
     this.isEmpty();
     this.isFull();
-    pen.print(prefix + "values: ");
+    pen.print(prefix + "values:  ");
     for (T val : ls) {
+     
       try {
         pen.print(val + " ");
       } catch (Exception e) {

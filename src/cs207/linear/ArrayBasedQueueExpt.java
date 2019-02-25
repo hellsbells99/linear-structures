@@ -31,7 +31,7 @@ public class ArrayBasedQueueExpt {
     // should be empty
     expt.isEmpty();
 
-    /*
+    
     // It's always good to see what happens after you've cleared
     // out a structure. So add a few more elements.
     // We'll leave this test until we've worked out some kinks (Dave?)
@@ -45,9 +45,9 @@ public class ArrayBasedQueueExpt {
     expt.get();
     // And we're back down to the empty queue
     expt.isEmpty();
-    */
+    
 
-    /*
+    
     // An iteration test, once we've workd out some kinks (Ray?)
     expt.put("a");
     expt.put("b");
@@ -58,13 +58,13 @@ public class ArrayBasedQueueExpt {
     expt.get();
     expt.get();
     expt.get();
-     */
+     
     
-    /*
+    
     // Future tests, once we've worked out some more kinks (Pete
     // and Mick?)
     LinearStructureExpt.expt01(new ArrayBasedQueue<String>(8), "size08.");
     LinearStructureExpt.expt01(new ArrayBasedQueue<String>(4), "size04.");
-    */
+    
   } // main(String[])
 } // class ArrayBasedQueueExpt
